@@ -1,0 +1,8 @@
+#!/usr/bin/ruby -W2
+
+require 'gnome-sshmenu'
+
+app = GnomeSSHMenu::Factory.make_app()
+
+app.run
+

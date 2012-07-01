@@ -1,0 +1,83 @@
+3.18  24-Aug-2009
+  * add support for initiating connections from command-line
+  * implement a bash_completion recipe
+  * fix warnings about @display not initialized
+  * make command-line option parsing errors go to STDERR only
+
+3.17  16-Aug-2009
+  * fix moving sub-menus with up/down buttons (Tracker ID 2581842 reported by
+    Harald Boehmecke)
+  * re-enabled drag-and-drop for reordering menu items if installed version
+    of bindings is new enough
+  * added optional text entry with auto complete next to menu button
+  * put Preferences and About options on right-click menu if supported by
+    installed Ruby bindings
+
+3.16  15-Jan-2009
+  * added --version option
+  * added --debug option
+  * fixed filename in README
+  * added option to hide border of main 'button' widget
+  * disabled buggy drag-and-drop for reordering menu items (Tracker ID 2129798)
+
+3.15  15-Oct-2007
+  * added support for using XEmbed to embed SSHMenu in another app/panel via
+    the --socket-window-id command line option
+  * simplified wrapper scripts so all arguments to make_app are now optional
+    and have sensible defaults
+  * wrapper scripts no longer need to call Gtk.init
+  * major revamp of command-line option handling
+    + no longer necessary to call app.getopts from wrapper script
+    + custom override of ARGV can be passed to make_app
+    + --config-file now processed early to allow it to influence class mappings
+  * calls to ssh-add now check exit code rather than parsing STDOUT
+  * integrated patch (Tracker ID 1790345) for multi-screen setups with
+    independent DISPLAY numbers
+  * added rdoc comments throughout codebase
+  * set_askpass() method renamed to setup_askpass_env()
+  * selected()    method renamed to on_selection_changed()
+
+3.14  04-Sep-2007
+  * add support for environment settings when connecting (eg: LANG)
+  * improved quoting of command arguments
+  * fix bcvi support in tabbed mode
+  * preserve unknown host attributes when saving config
+  * add homepage link in 'About' pane of main dialog
+  * initially collapse sub-menus in preferences dialog
+  * replace README.HACKERS file with HTML version at:
+    http://sshmenu.sourceforge.net/dev/hackers_guide.html
+  * add a test suite
+
+3.13  10-May-2007
+  * add support for bcvi
+  * add support for command-line arguments
+  * make config filename configurable
+  * make text selectable in alert boxes (for easier reporting of stack traces)
+  * add option to save a backup copy of config file
+    (make_options_pane now returns a table rather than a frame)
+  * add an 'About' pane to main dialog for version/copyright details
+  * add workaround for Debian popcon reporting
+
+3.12  07-Aug-2006
+  * improve robustness of config file loading
+  * add expandable error detail on fatal exception dialog
+  * add workaround for older libgtk-ruby on Debian Sarge
+  * fixes to Debian packaging (maintainer email and icon caching)
+
+3.11  14-Jul-2006
+  * first public release
+  * factored GNOME-specific code out into separate classes
+  * added a config 'wizard' to generate an initial setup from known_hosts file
+
+Pre-history:
+
+2.??  ??-Sep-2005
+  * reimplemented in Ruby as a GNOME panel applet
+  * switched config file from XML to YAML (to reduce dependencies)
+  * added options to open all in windows or tabs
+  * add window geometry to host config dialog
+
+1.??  ??-May-2002
+  * initial implementation as standalone (non applet) Perl GTK app
+  * later added dialogs for editing XML config file
+

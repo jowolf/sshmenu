@@ -1,0 +1,8 @@
+#!/usr/bin/ruby -W2
+
+require 'sshmenu'
+
+app = SSHMenu::Factory.make_app()
+
+app.run
+

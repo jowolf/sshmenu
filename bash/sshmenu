@@ -1,0 +1,16 @@
+# Install as /etc/bash_completion.d/sshmenu
+
+function _sshmenu() {
+    local IFS
+    cur=`_get_cword`
+    COMPREPLY=()
+    IFS=$'\n'
+    for line in `sshmenu --list-completions ${cur#*@}`
+    do
+        COMPREPLY[${#COMPREPLY[@]}]="$(echo "$line" | sed 's/\([^a-zA-Z0-9._-]\)/\\\1/g')"
+    done
+}
+
+complete -F _sshmenu sshmenu
+complete -F _sshmenu sshmenu-gnome
+

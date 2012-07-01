@@ -1,0 +1,94 @@
+DESCRIPTION
+
+  sshmenu-applet is a GNOME panel applet for connecting to hosts using SSH.
+  It can also be run as a standalone application without GNOME dependencies.
+
+  sshmenu-applet puts all your most frequently used SSH connections on a handy
+  menu in your GNOME panel.  Click on a host name to open a new gnome-terminal
+  window with an ssh connection to the selected host.  Set up SSH options (such
+  as port forwarding etc) and select a gnome terminal profile (for colour
+  schemes, font sizes etc) using the preferences dialog.
+
+  The application is implemented as a set of Ruby classes so you should be able
+  to hack it to work in contexts other than the GNOME panel (e.g.: a standalone
+  menu button; swallowed into the panel of another window manager; or embedded
+  into your own Ruby-GTK application).
+
+
+DEPENDENCIES
+
+  sshmenu-applet is a Ruby script which uses the following ruby library
+  packages (on Debian):
+
+    libgtk2-ruby libpanel-applet2-ruby libgconf2-ruby
+
+  You should also have an ssh-agent running and have either x11-ssh-askpass
+  or gnome-ssh-askpass installed.
+
+
+INSTALLATION
+
+  The simplest way to install the sshmenu-applet is to install the Debian
+  packages.  Of course if you're not running Debian then that might not be
+  so simple.
+
+  The files from the distribution should be installed as follows:
+
+  lib/sshmenu.rb - a Ruby library that implements the standalone SSHMenu UI
+    (without GNOME dependencies).  It should be installed in a standard Ruby
+    library directory, e.g.: /usr/lib/ruby/1.8/sshmenu.rb
+
+  lib/gnome-sshmenu.rb - a Ruby library that adds the GNOME-specific features
+    to SSHMenu.  It should also be installed in a standard Ruby library
+    directory.
+
+  sshmenu-applet - a small wrapper script that uses sshmenu.rb to create
+    an instance of the application in a panel applet window.  It can be 
+    installed anywhere as long as the path in the .server file (see below)
+    is adjusted to point to it.  Typical location:
+    /usr/lib/gnome-panel/sshmenu-applet
+
+  gnome-sshmenu-applet.png - an icon used to represent the applet in the 
+    GNOME panel applet selector dialog ("Add to Panel").  It must be 
+    installed wherever your GNOME installation expects to find applet icons.
+    Typical location:
+    /usr/share/icons/hicolor/48x48/apps/gnome-sshmenu-applet.png
+
+  sshmenu-applet.server - file used to register the applet so that it can be
+    found and started by GNOME.  It must be adjusted to include the full
+    pathname of where you installed sshmenu-applet.rb and would typically
+    be installed as:
+    /usr/lib/bonobo/servers/sshmenu-applet.server
+
+  bin/sshmenu - a short wrapper script which implements the menu using the
+    sshmenu.rb library. This file should go in /usr/bin and must be
+    executable. (Not required at all for running the panel applet).
+
+  bin/sshmenu-gnome - a short wrapper script implements the standalone menu
+    with GNOME-specific functionality. It should live in the same directory
+    as sshmenu (above) and should also be executable.  (Also not required for
+    running the panel applet).
+
+  For more information, see the installation and packaging guide:
+
+    http://sshmenu.sourceforge.net/download/install.html
+
+
+CUSTOMISATION
+
+  A user would typically customise the list of hosts which appear on the menu
+  using the preferences dialog.  More complex customisations can be achieved
+  using techniques described in the Hacker's Guide:
+
+    http://sshmenu.sourceforge.net/dev/hackers_guide.html
+
+
+COPYRIGHT
+
+  Copyright 2002-2009 Grant McLean <grant@mclean.net.nz>
+
+  This package is free software; you can redistribute it and/or modify it
+  under the terms of the License.txt file (a BSD-style license) distributed 
+  with the software.
+
+

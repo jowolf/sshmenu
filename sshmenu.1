@@ -1,0 +1,53 @@
+.TH SSHMENU 1 "July 4, 2006"
+.SH NAME
+sshmenu \- GNOME applet for connecting to hosts using SSH.
+.SH DESCRIPTION
+The SSHMenu applet puts all your most frequently used SSH connections on a
+handy menu in your GNOME panel (see below for non-GNOME versions.  Click on a
+host name to open a new gnome-terminal window with an ssh connection to the
+selected host.  Set up SSH options (such as port forwarding etc) and select a
+gnome terminal profile (for colour schemes, font sizes etc) using the
+preferences dialog.
+.PP
+Add the applet to a GNOME panel in the normal way: right click on the panel, 
+select 'Add to Panel' and then select the SSH Menu Applet from the list.
+.PP
+Configure the applet using the 'Preferences' option on the applet menu.
+.SH STANDALONE VERSIONS
+The SSHMenu application uses the GTK GUI toolkit but is not dependent on the
+GNOME desktop environment.  Two alternative wrapper scripts are provided:
+.PP
+sshmenu-gnome - provides all the functionality of the SSHMenu applet but in a
+standalone application window that could (for example) be swallowed into the
+panel of an alternative desktop environment.
+.PP
+sshmenu - provides similar functionality to sshmenu-gnome, but without any
+GNOME dependencies.  Notably, xterm is used instead of gnome-terminal.
+.PP
+The Hacker's Guide ( http://sshmenu.sourceforge.net/dev/hackers_guide.html ) 
+describes a number of ways in which the SSHMenu can be further customised.
+.SH OPTIONS
+The applet is not invoked from the command-line however the standalone versions
+recognise the following options and can be extended to recognise more:
+.TP
+.BI \-c " FILE" "\fR,\fP \-\^\-config-file " FILE
+read and write config information to
+.I FILE
+instead of the default
+.B $HOME/.sshmenu
+.TP
+.BI \-d " NUM" "\fR,\fP \-\^\-debug " NUM
+set debug level to
+.I NUM
+(default: 0)
+.TP
+.BI \-s " NUM" "\fR,\fP \-\^\-socket-window-id " NUM
+use the XEmbed protocol to embed
+the SSHMenu user interface in the window identified by
+.I NUM
+instead of creating a new, top-level window,
+.TP
+.BR \-V ", " \-\^\-version
+output version information and exit
+.SH AUTHOR
+sshmenu-applet was written by Grant McLean <grant@mclean.net.nz>
