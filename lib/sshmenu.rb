@@ -1094,7 +1094,7 @@ module SSHMenu
 
     def build_window_command(host)
       # try gnome-terminal, mate-terminal, lxterminal here
-      term = `which gnome-terminal || which mate-terminal || which lxterminal || which $TERM`
+      term = `which $SSHTERM || which gnome-terminal || which mate-terminal || which lxterminal || which $TERM`.chomp
 
       if term.empty?
         # punt to xterm
@@ -1120,7 +1120,7 @@ module SSHMenu
         ssh_cmnd = ssh_command(host)
         command += " -e 'sh -c " +
                     shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + "' &"
-        puts command
+        #puts command
         return command
       end
     end
