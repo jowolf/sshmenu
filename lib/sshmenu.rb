@@ -1093,13 +1093,14 @@ module SSHMenu
     # in an xterm window, to connect to the specified host.
 
     def build_window_command(host)
-      command = "#{host.env_settings}xterm -T " + shell_quote(host.title)
+      command = "#{host.env_settings}lxterminal --title=" + shell_quote(host.title)
       if host.geometry and host.geometry.length > 0
-        command += " -geometry #{host.geometry}"
+        command += " --geometry=#{host.geometry}"
       end
       ssh_cmnd = ssh_command(host)
-      command += ' -e sh -c ' +
-                 shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + ' &'
+      command += " -e 'sh -c " +
+                 shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + "' &"
+      puts command
       return command
     end
 
