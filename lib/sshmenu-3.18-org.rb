@@ -1093,36 +1093,14 @@ module SSHMenu
     # in an xterm window, to connect to the specified host.
 
     def build_window_command(host)
-      # try gnome-terminal, mate-terminal, lxterminal here
-      term = `which gnome-terminal || which mate-terminal || which lxterminal || which $TERM`
-
-      if term.empty?
-        # punt to xterm
-        term = 'xterm'
+      command = "#{host.env_settings}xterm -T " + shell_quote(host.title)
+      if host.geometry and host.geometry.length > 0
+        command += " -geometry #{host.geometry}"
       end
-
-      if term =~ /xterm$/
-        # if endswith xterm, use xterm-compatible commandline syntax
-        command = "#{host.env_settings}#{term} -T " + shell_quote(host.title)
-        if host.geometry and host.geometry.length > 0
-            command += " -geometry #{host.geometry}"
-        end
-        ssh_cmnd = ssh_command(host)
-        command += ' -e sh -c ' +
-                    shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + ' &'
-        return command
-      else
-        # use gterm-compatible commandline syntax
-        command = "#{host.env_settings}#{term} --title=" + shell_quote(host.title)
-        if host.geometry and host.geometry.length > 0
-            command += " --geometry=#{host.geometry}"
-        end
-        ssh_cmnd = ssh_command(host)
-        command += " -e 'sh -c " +
-                    shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + "' &"
-        puts command
-        return command
-      end
+      ssh_cmnd = ssh_command(host)
+      command += ' -e sh -c ' +
+                 shell_quote("#{ssh_cmnd} #{host.sshparams_noenv}") + ' &'
+      return command
     end
 
     # Called from build_window_command to determine the name of the ssh command
