@@ -46,15 +46,15 @@ Post questions or issues if you have problems or suggestions, or want to take on
 Usage
 =====
 
-Everything is identical to sshterm, except the terminal launch handling - the standalone sshmenu will try the folloing, in order, for the terminal to launch:
+Everything is identical to sshterm, except the terminal launch handling - the standalone sshmenu will look for the following, in order, for the terminal program to launch:
 
 - The contents of the SSHTERM environment variable, if present
 - gnome-terminal if present
 - mate-terminal if present
 - lxterminal if present
-- the contents of the TERM environment variable (usually 'xterm')
+- The contents of the TERM environment variable (usually 'xterm')
 
-Note that the syntax for the title, geomentry, and commands to execute differ between xterm and the others, which are all generally "gnome-terminal compatible", so if the SSHTERM or TERM ends in 'xterm', the xterm syntax is used, otherwise the gnome-terminal syntax is used. See "Future directions" below, and indicate your preference as desired :).
+Note that the syntax for the title, geometry, and commands to execute differ between xterm and the others, which are all generally "gnome-terminal syntax compatible", so if the SSHTERM or TERM ends in 'xterm', the xterm syntax is used, otherwise the gnome-terminal syntax is used. See "Future directions" below, and indicate your preference as desired :).
 
 
 Other related projects of note
@@ -72,4 +72,3 @@ Possible Future Directions
  - Refactor more terminal launch options into the connfig file 
  - Merge functionality with the related projects mentioned above
  - More robust / configurable syntax for launching arbitrary terminals
- - 
