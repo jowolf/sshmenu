@@ -28,6 +28,8 @@ Anyway, my current strategy is to use the sshmenu standalone app, which launches
 
 Also, there's no reason that gnome-terminal (or mate-terminal, or lxterminal, for that matter) can't be used to provide the terminal capabilities (without requiring gnome-sshmenu), I am implementing a config option for this - first step is lxterminal, since I now use LXDE to avoid the Gnome CF.
 
+UPDATE: This version now looks in several places, in a specific order, for a valid terminal to launch, and is configurable via the SSHTERM and TERM envo vars.  See "Usage".
+
 
 Installation
 ============
@@ -39,6 +41,20 @@ Until such time as someone does a gem-based intall or the distros pick this up f
 - Delete & symlink /usr/lib/ruby/1.8/sshmenu.rb (YMMV dependning on your distro) to point to the ssnmenu.rb here in this repo.
 
 Post questions or issues if you have problems or suggestions, or want to take on the gem/deb/rpm packaging tasks..
+
+
+Usage
+=====
+
+Everything is identical to sshterm, except the terminal launch handling - the standalone sshmenu will try the folloing, in order, for the terminal to launch:
+
+- The contents of the SSHTERM environment variable, if present
+- gnome-terminal if present
+- mate-terminal if present
+- lxterminal if present
+- the contents of the TERM environment variable (usually 'xterm')
+
+Note that the syntax for the title, geomentry, and commands to execute differ between xterm and the others, which are all generally "gnome-terminal compatible", so if the SSHTERM or TERM ends in 'xterm', the xterm syntax is used, otherwise the gnome-terminal syntax is used. See "Future directions" below, and indicate your preference as desired :).
 
 
 Other related projects of note
@@ -55,4 +71,5 @@ Possible Future Directions
  - Add panel applet capabilities with other windowing systems, such as XFCE, LXDE, MATE, Cinnamon, etc.
  - Refactor more terminal launch options into the connfig file 
  - Merge functionality with the related projects mentioned above
- 
+ - More robust / configurable syntax for launching arbitrary terminals
+ - 
