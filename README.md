@@ -46,7 +46,7 @@ Post questions or issues if you have problems or suggestions, or want to take on
 Usage
 =====
 
-Everything is identical to sshterm, except the terminal launch handling - the standalone sshmenu will look for the following, in order, for the terminal program to launch:
+Everything is identical to sshterm, except the terminal launch handling - the standalone (non-Gnome) sshmenu will look for the following, in order, for the terminal program to launch:
 
 - The contents of the SSHTERM environment variable, if present
 - gnome-terminal if present
