@@ -1,6 +1,6 @@
 require 'getoptlong'
 require 'pathname'
-require 'ftools'
+require 'fileutils'
 require 'singleton'
 require 'gtk2'
 require 'yaml'
