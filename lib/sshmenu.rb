@@ -38,8 +38,8 @@ end
 
 module SSHMenu
 
-  @@VERSION      = '3.18'
-  @@HOMEPAGE_URL = 'http://sshmenu.sourceforge.net/'
+  @@VERSION      = '3.20'
+  @@HOMEPAGE_URL = 'https://github.com/jowolf/sshmenu'
 
   # Returns the version number of this release of SSHMenu
 
