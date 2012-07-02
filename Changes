@@ -1,3 +1,15 @@
+3.20 2-Jul-2012
+  * update standalone sshmenu for Ruby 1.9.x
+  * changed ftools to fileutils
+
+3.19  1-Jul-2012
+  * initial fork on github - jowolf
+  * update terminal launch to allow other terminals than xterm for standalone sshmenu
+  * added SSHTERM env var
+  * check for gnome-terminal, lxterminal, mate-terminal also
+  * fall back to TERM env var
+  * added detailed new README.md for github with background, reasoning, future direction, documentation, install instructions for newer Linuxes, etc
+  
 3.18  24-Aug-2009
   * add support for initiating connections from command-line
   * implement a bash_completion recipe
