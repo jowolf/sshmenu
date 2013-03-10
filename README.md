@@ -3,6 +3,17 @@ sshmenu
 
 sshmenu, with newer updates for various platforms, Forked from 3.18 sshmenu on sourceforge.
 
+News
+====
+
+As of March, 2013, work has begun on integrating into the "App Indicator" menu, in Unity (yuk), anyway, FWIW.
+
+Will require ruby-appindicator and the dev packages.
+
+Current (3.20) version works on Ubuntu 12.04 or 12.10, with Ruby 1.9x series.
+
+Also, a few bugs fixed for the newer Ruby version, and dependencies (FileUtils, not ftools).
+
 
 Background
 ==========
