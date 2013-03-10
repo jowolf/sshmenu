@@ -1402,7 +1402,7 @@ module SSHMenu
 
     def make_backup_copy
       return unless File.exists?(@filename)
-      File.syscopy(@filename, @filename.to_s + '.bak')
+      FileUtils.cp(@filename, @filename.to_s + '.bak')
     end
 
     # Gets the value of an attribute in the 'globals' config section
@@ -2998,9 +2998,9 @@ btr62FVTnwset0IvCKJoHs8XWP2DGkWzMPA8z3GxG8HjFjLWEKYxTdt1fNgONrJt2zRxsGYmwr/l
 0e/ygHzp0v/WX7AH3cFL3lx/AAAAAElFTkSuQmCC
 EOF
 ))
-    loader.close
-    return Gtk::Image.new(loader.pixbuf)
-  end
+      loader.close
+      return Gtk::Image.new(loader.pixbuf)
+    end
 
     # Reads the known hosts file, skipping hashed host entries and collecting
     # hostnames from the remaining entries - returns a list of hostnames.
