@@ -1,0 +1,11 @@
+UPDATE 10/20/14 JJW:
+
+1) Ubuntu 14.04 problem SOLVED - fix / workaound checked in, see issues.
+
+2) Appindicator work is stalled - checking in to alternate branch: AppIndicator.
+
+
+UPDATE 3/9/13:  
+ruby-gnome2 package is no longer required on Ubuntu 12.10
+sudo gem install ruby-libappindicator
+also requires libappindicator-dev and libappindicator3-dev
