@@ -6,6 +6,7 @@
 
   This program is licenced under the terms of the License.txt file (a BSD-style
   license) distributed with the software.
+=end
 
 require 'gnome-sshmenu'
 
@@ -21,14 +22,3 @@ PanelApplet.main("OAFIID:GNOME_SSHMenuApplet_Factory",
     false
   end
 end
-=end
-
-require "rubygems"
-require "ruby-libappindicator"
-
-ai = AppIndicator::AppIndicator.new("test", "indicator-messages", AppIndicator::Category::APPLICATION_STATUS);
-
-ai.set_menu(Gtk::Menu.new)
-ai.set_status(AppIndicator::Status::ACTIVE)
-
-Gtk.main
