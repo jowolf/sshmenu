@@ -1,5 +1,5 @@
 require 'sshmenu'
-require 'gconf2'
+#require 'gconf2'
 
 ##############################################################################
 # = License
