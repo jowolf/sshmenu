@@ -6,6 +6,14 @@ sshmenu, with newer updates for various platforms, Forked from 3.18 sshmenu on s
 News
 ====
 
+Update Oct 20, 2014 JJW:
+
+1) Ubuntu 14.04 problem SOLVED - fix / workaound checked in, see issues.
+
+2) Appindicator work is stalled - checking in to alternate branch: AppIndicator.
+
+--
+
 As of March, 2013, work has begun on integrating into the "App Indicator" menu, in Unity (yuk), anyway, FWIW.
 
 Will require ruby-appindicator and the dev packages.
