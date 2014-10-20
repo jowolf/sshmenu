@@ -974,8 +974,9 @@ module SSHMenu
 
     # Helper method to calculate where to place the main menu
 
-    def menu_position(menu, event)
-      (w, h) = event.window.size
+    def menu_position(menu, event)  # window error on 14.04 - hardcode 40x40:
+      (w, h) = 0,0
+      #(w, h) = event.window.size
       x = event.x_root - event.x - 1
       y = event.y_root - event.y + h + 1
 
